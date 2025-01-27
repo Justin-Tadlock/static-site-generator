@@ -9,7 +9,7 @@ class SplitNodes(unittest.TestCase):
             TextNode('Testing **bold** text split', TextType.TEXT)
         ]
         split_nodes = get_split_nodes(old_nodes, '**', TextType.BOLD)
-        self.assertEqual(split_nodes, [
+        self.assertListEqual(split_nodes, [
             TextNode('Testing ', TextType.TEXT),
             TextNode('bold', TextType.BOLD),
             TextNode(' text split', TextType.TEXT)
@@ -20,7 +20,7 @@ class SplitNodes(unittest.TestCase):
             TextNode('Testing *italic* text split', TextType.TEXT)
         ]
         split_nodes = get_split_nodes(old_nodes, '*', TextType.ITALIC)
-        self.assertEqual(split_nodes, [
+        self.assertListEqual(split_nodes, [
             TextNode('Testing ', TextType.TEXT),
             TextNode('italic', TextType.ITALIC),
             TextNode(' text split', TextType.TEXT)
@@ -31,7 +31,7 @@ class SplitNodes(unittest.TestCase):
             TextNode('Testing `code` text split', TextType.TEXT)
         ]
         split_nodes = get_split_nodes(old_nodes, '`', TextType.CODE)
-        self.assertEqual(split_nodes, [
+        self.assertListEqual(split_nodes, [
             TextNode('Testing ', TextType.TEXT),
             TextNode('code', TextType.CODE),
             TextNode(' text split', TextType.TEXT)
