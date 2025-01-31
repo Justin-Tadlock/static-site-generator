@@ -1,14 +1,14 @@
 import unittest
 
 
-from split_nodes_image import split_nodes_link
+from split_nodes_image import split_nodes_image
 from textnode import TextNode, TextType
 
 
 
 class SplitNodesImage(unittest.TestCase):
     def test_split_nodes_image(self):
-        result = split_nodes_link([
+        result = split_nodes_image([
             TextNode(
                 "This is text with a ![rick roll](https://i.imgur.com/aKaOqIh.gif) and ![obi wan](https://i.imgur.com/fJRm4Vk.jpeg)",
                 TextType.TEXT,
