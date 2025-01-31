@@ -1,4 +1,4 @@
-from textnode import TextNode, TextType
+from nodes import TextNode, TextType
 from helpers import extract_markdown_links
 
 def split_nodes_link(old_nodes: list[TextNode]):

@@ -1,4 +1,4 @@
-from htmlnode import HTMLNode
+from nodes import HTMLNode
 
 class LeafNode(HTMLNode):
     def __init__(self, value: str, tag=None, props=None):

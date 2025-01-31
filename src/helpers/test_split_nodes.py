@@ -1,7 +1,7 @@
 import unittest
 
-from split_nodes import get_split_nodes
-from textnode import TextNode, TextType
+from nodes import TextNode, TextType
+from .split_nodes import get_split_nodes
 
 class SplitNodes(unittest.TestCase):
     def test_bold(self):

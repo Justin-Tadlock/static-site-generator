@@ -1,10 +1,7 @@
 import unittest
 
-
-from split_nodes_link import split_nodes_link
-from textnode import TextNode, TextType
-
-
+from nodes import TextNode, TextType
+from .split_nodes_link import split_nodes_link
 
 class SplitNodesLink(unittest.TestCase):
     def test_split_nodes_link(self):

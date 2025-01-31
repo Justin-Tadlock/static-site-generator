@@ -1,13 +1,13 @@
 from helpers import get_delimited_slices
-from textnode import TextNode, TextType
+from nodes import TextNode, TextType
 
 def get_split_nodes(old_nodes: list[TextNode], delimiter: str, text_type: TextType):
     new_nodes = []
     for node in old_nodes:
-        parsed_text = node.text
+        node_text = node.text
 
-        while len(parsed_text) > 0:
-            first, delim, remainder = get_delimited_slices(parsed_text, delimiter)
+        while len(node_text) > 0:
+            first, delim, remainder = get_delimited_slices(node_text, delimiter)
             if first == '' or delim == '':
                 new_nodes.append(TextNode(remainder, TextType.TEXT))
                 break
@@ -22,8 +22,7 @@ def get_split_nodes(old_nodes: list[TextNode], delimiter: str, text_type: TextTy
                     delimited_node = TextNode(delim, text_type)
             new_nodes.extend([first_node, delimited_node])
 
-            parsed_text = remainder
-        
+            node_text = remainder
     return new_nodes
 
 
