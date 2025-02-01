@@ -1,21 +1,10 @@
-def markdown_to_blocks(text):
-    lines = list(filter(lambda x: x != '', text.lstrip('\n').split("\n")))
+def markdown_to_blocks(markdown):
+    blocks = markdown.split('\n\n')
 
-    blocks = []
-    unordered_list = ''
-    for line in lines:
-        if line.startswith("#"):
-            blocks.append(line)
-            continue
-        if line.startswith('* '):
-            unordered_list += line
-            continue
-        if not line.startswith('* ') and len(unordered_list) > 0:
-            blocks.append(unordered_list)
-            unordered_list = ''
-            continue
-        blocks.append(line)        
-    if len(unordered_list) > 0:
-        blocks.append(unordered_list)
+    filtered_blocks = list(
+        map(lambda b: b.strip(),
+            filter(lambda b: b != '',
+                   blocks)
+        ))
 
-    return blocks
+    return filtered_blocks
