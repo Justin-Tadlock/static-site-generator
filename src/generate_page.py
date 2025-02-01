@@ -23,7 +23,7 @@ def generate_page(from_path, template_path, dest_path):
     
     if not os.path.exists(os.path.abspath(os.path.dirname(dest_path))):
         os.mkdir(os.path.abspath(os.path.dirname(dest_path)))
-    with open(dest_path, 'w') as out_file:
+    with open(dest_path.replace('.md', '.html'), 'w') as out_file:
         out_file.write(template_result)
     
     
