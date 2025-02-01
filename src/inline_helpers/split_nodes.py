@@ -11,11 +11,14 @@ def get_split_nodes(old_nodes: list[TextNode], delimiter: str, text_type: TextTy
         node_text = node.text
         while len(node_text) > 0:
             first, delim, remainder = get_delimited_slices(node_text, delimiter)
-            if first == '' or delim == '':
+            if first == '' and delim == '':
                 new_nodes.append(TextNode(remainder, TextType.TEXT))
                 break
             
-            first_node = TextNode(first, TextType.TEXT)
+            if first != '':
+                first_node = TextNode(first, TextType.TEXT)
+                new_nodes.append(first_node)
+
             match text_type:
                 case TextType.LINK:
                     delimited_node = TextNode(delim, text_type, url=node.url)
@@ -23,7 +26,7 @@ def get_split_nodes(old_nodes: list[TextNode], delimiter: str, text_type: TextTy
                     delimited_node = TextNode(None, text_type, { 'href': node.url, 'alt': delim})
                 case _:
                     delimited_node = TextNode(delim, text_type)
-            new_nodes.extend([first_node, delimited_node])
+            new_nodes.append(delimited_node)            
 
             node_text = remainder
     return new_nodes

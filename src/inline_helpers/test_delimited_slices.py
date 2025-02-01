@@ -17,6 +17,13 @@ class GetDelimitedSlices(unittest.TestCase):
         self.assertEqual(delim, 'bold')
         self.assertEqual(remainder, " Splicing")
 
+    def test_found_bold_at_start(self):
+        text = '**bold** Testing Splicing'
+        sliced, delim, remainder = get_delimited_slices(text, '**')
+        self.assertEqual(sliced, '')
+        self.assertEqual(delim, 'bold')
+        self.assertEqual(remainder, " Testing Splicing")
+
     def test_found_italic(self):
         text = 'Testing *italic* Splicing'
         sliced, delim, remainder = get_delimited_slices(text, '*')

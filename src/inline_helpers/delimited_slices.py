@@ -4,7 +4,10 @@ def get_delimited_slices(string, delimiter):
         return ['', '', string]
     
     first_slice = string[0:first_idx]
-    new_str = string.split(first_slice)[1][len(delimiter):]
+    if first_idx == 0:
+        new_str = string[len(delimiter):]
+    else:
+        new_str = string.split(first_slice)[1][len(delimiter):]
 
     second_idx = new_str.find(delimiter)
     if second_idx < 0:
