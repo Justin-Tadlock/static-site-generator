@@ -1,6 +1,6 @@
 
-from helpers import get_split_nodes_link, get_split_nodes_image
-from helpers.split_nodes import get_split_nodes
+from inline_helpers import get_split_nodes_link, get_split_nodes_image
+from inline_helpers.split_nodes import get_split_nodes
 from nodes.textnode import TextNode, TextType
 
 

@@ -1,6 +1,6 @@
 import unittest
 
-from helpers import get_delimited_slices
+from inline_helpers import get_delimited_slices
 
 class GetDelimitedSlices(unittest.TestCase):
     def test_not_found(self):

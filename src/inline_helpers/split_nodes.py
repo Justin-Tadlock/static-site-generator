@@ -1,4 +1,4 @@
-from helpers import get_delimited_slices
+from inline_helpers import get_delimited_slices
 from nodes import TextNode, TextType
 
 def get_split_nodes(old_nodes: list[TextNode], delimiter: str, text_type: TextType):
