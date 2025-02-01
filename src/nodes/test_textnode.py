@@ -55,32 +55,32 @@ class TestTextNode(unittest.TestCase):
     
     def test_to_htmlnode_text(self):
         node = TextNode("This is a text node", TextType.TEXT)
-        html_node = node.text_node_to_html_node()
+        html_node = node.to_html()
         self.assertEqual(html_node.__repr__(), "HTMLNode(None, This is a text node, None, None)")
 
     def test_to_htmlnode_bold(self):
         node = TextNode("This is a BOLD text node", TextType.BOLD)
-        html_node = node.text_node_to_html_node()
+        html_node = node.to_html()
         self.assertEqual(html_node.__repr__(), "HTMLNode(b, This is a BOLD text node, None, None)")
 
     def test_to_htmlnode_italic(self):
         node = TextNode("This is an ITALIC text node", TextType.ITALIC)
-        html_node = node.text_node_to_html_node()
+        html_node = node.to_html()
         self.assertEqual(html_node.__repr__(), "HTMLNode(i, This is an ITALIC text node, None, None)")
 
     def test_to_htmlnode_code(self):
         node = TextNode("This is a CODE text node", TextType.CODE)
-        html_node = node.text_node_to_html_node()
+        html_node = node.to_html()
         self.assertEqual(html_node.__repr__(), "HTMLNode(code, This is a CODE text node, None, None)")
 
     def test_to_htmlnode_LINK(self):
         node = TextNode("This is a LINK text node", TextType.LINK, "http://boot.dev")
-        html_node = node.text_node_to_html_node()
+        html_node = node.to_html()
         self.assertEqual(html_node.__repr__(), "HTMLNode(a, This is a LINK text node, None, {'href': 'http://boot.dev'})")
 
     def test_to_htmlnode_image(self):
         node = TextNode("This is an IMAGE text node", TextType.IMAGE, 'http://boot.dev')
-        html_node = node.text_node_to_html_node()
+        html_node = node.to_html()
         self.assertEqual(html_node.__repr__(), "HTMLNode(img, , None, {'src': 'http://boot.dev', 'alt': 'This is an IMAGE text node'})")
 
     def test_repr(self):

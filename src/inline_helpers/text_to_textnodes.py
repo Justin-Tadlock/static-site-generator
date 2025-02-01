@@ -4,7 +4,7 @@ from inline_helpers.split_nodes import get_split_nodes
 from nodes.textnode import TextNode, TextType
 
 
-def text_to_textnodes(text):
+def text_to_textnodes(text) -> list[TextNode]:
     text_node = TextNode(text, TextType.TEXT)
 
     bold_nodes = get_split_nodes([text_node], "**", TextType.BOLD)
