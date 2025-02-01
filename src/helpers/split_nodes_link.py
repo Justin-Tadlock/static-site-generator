@@ -1,7 +1,7 @@
 from nodes import TextNode, TextType
 from helpers import extract_markdown_links
 
-def split_nodes_link(old_nodes: list[TextNode]):
+def get_split_nodes_link(old_nodes: list[TextNode]):
     new_nodes = []
 
     for node in old_nodes:

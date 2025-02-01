@@ -1,11 +1,11 @@
 import unittest
 
 from nodes import TextNode, TextType
-from .split_nodes_link import split_nodes_link
+from .split_nodes_link import get_split_nodes_link
 
 class SplitNodesLink(unittest.TestCase):
     def test_split_nodes_link(self):
-        result = split_nodes_link([
+        result = get_split_nodes_link([
             TextNode(
                 "This is text with a link [to boot dev](https://www.boot.dev) and [to youtube](https://www.youtube.com/@bootdotdev)",
                 TextType.TEXT,
