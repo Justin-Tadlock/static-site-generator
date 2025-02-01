@@ -15,6 +15,16 @@ class SplitNodes(unittest.TestCase):
             TextNode(' text split', TextType.TEXT)
         ])
 
+    def test_bold_start(self):
+        old_nodes = [
+            TextNode('**bold** Testing text split', TextType.TEXT)
+        ]
+        split_nodes = get_split_nodes(old_nodes, '**', TextType.BOLD)
+        self.assertListEqual(split_nodes, [
+            TextNode('bold', TextType.BOLD),
+            TextNode(' Testing text split', TextType.TEXT)
+        ])
+
     def test_italic(self):
         old_nodes = [
             TextNode('Testing *italic* text split', TextType.TEXT)
