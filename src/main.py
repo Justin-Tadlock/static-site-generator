@@ -1,6 +1,8 @@
 import os
 import shutil
 
+from generate_page import generate_page
+
 def delete_files(destination):
     print(f'deleting files from {destination}')
     files = os.listdir(destination)
@@ -33,12 +35,17 @@ def copy_files(source, destination):
 
 def copy_static_files(source, destination):
     delete_files(destination)
-    
     copy_files(source, destination)
 
 def main():
     curr_dir = os.path.abspath(os.path.curdir)
     copy_static_files(os.path.join(curr_dir, 'static'), os.path.join(curr_dir, 'public'))
+
+    generate_page(
+        os.path.join(curr_dir, 'content/index.md'),
+        os.path.join(curr_dir, 'template.html'),
+        os.path.join(curr_dir, 'public/index.html')
+    )
 
 if __name__ == "__main__":
     main()
